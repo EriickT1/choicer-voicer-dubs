@@ -29,10 +29,10 @@ python scripts/download_and_prep.py "URL_DEL_VIDEO"
 ```
 *(Nota: El script creará un directorio de trabajo basado en el ID del video y dejará allí el `mapping.json`).*
 
-### Paso 2: Revisión de Personajes
+### Paso 2: Revisión de Transcripción y Personajes
 1. Lee el archivo `mapping.json` recién generado. 
-2. Muéstrale al usuario las líneas transcritas y pídele que asigne un **Nombre de Personaje** y un **Identificador Corto** (`char_key`) para cada segmento, O utiliza tu capacidad de deducción de LLM si el usuario ya te proveyó el guion/contexto.
-3. Actualiza el archivo `mapping.json` escribiendo los personajes correctos en cada campo `"char_name"` y `"char_key"`.
+2. Muéstrale al usuario las líneas transcritas generadas por Whisper. Pídele que valide si la transcripción es correcta (para que pueda corregir errores) y, al mismo tiempo, que asigne un **Nombre de Personaje** y un **Identificador Corto** (`char_key`) para cada segmento. Opcionalmente, puedes utilizar tu capacidad de deducción de LLM si el usuario ya te proveyó el guion/contexto.
+3. Actualiza el archivo `mapping.json` aplicando las correcciones al texto (`"text"`) y escribiendo los personajes correctos en cada campo `"char_name"` y `"char_key"`.
 
 ### Paso 3: Generación del Paquete
 Ejecuta el script de generación apuntando a la carpeta de trabajo donde se encuentra el `mapping.json` actualizado.
